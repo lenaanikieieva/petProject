@@ -1,8 +1,4 @@
 class HomePage {
-    visit() {
-      cy.visit('/');
-    }
-  
     searchForJob(jobTitle) {
       cy.get('[data-react-class="SearchInput"]').type(jobTitle);
     }

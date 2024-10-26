@@ -1,17 +1,16 @@
 import user from '../../fixtures/user.data.amazon.json';
-import HomePage from '../POM/HomePage';
-import LoginPage from '../POM/LoginPage';
+import HomePage from '../POM/Home.Page';
+import LoginPage from '../POM/Login.Page';
 
 describe('Applying to QA position', () => {
     const homePage = new HomePage();
     const loginPage = new LoginPage();
   
     it('should apply to QA position', () => {
-      homePage.visit();
+      cy.visit('/');
       homePage.searchForJob('QA');
       homePage.enterLocation('USA');
       homePage.clickSearchButton();
-      cy.wait(2000); //waiting to click second time, amazon's specific behaviour
       homePage.clickSearchButton();
       homePage.clickFirstJobResult();
       cy.contains('DESCRIPTION');
